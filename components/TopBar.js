@@ -15,21 +15,15 @@ const NAV = [
   ['/ulasan/', 'Review'],
 ]
 
-// Header dua lapis: strip hitam tipis di atas, lalu bar putih berisi logo, menu, dan akun.
+// Header: bar putih berisi logo, menu, dan akun.
 export default function TopBar() {
-  const { user, isOwner, settings: s } = useSite()
+  const { user, isOwner } = useSite()
   const router = useRouter()
   const [open, setOpen] = useState(false)
   async function logout() { await signOut(); setOpen(false); router.push('/') }
   const item = 'text-[15px] font-semibold text-ink/80 transition-colors hover:text-ink'
   return (
     <header className="sticky top-0 z-40 bg-white">
-      <div className="bg-ink text-white">
-        <div className="wadah flex h-8 items-center justify-between text-xs">
-          <span className="truncate">Toko resmi @{s.username}</span>
-          <a href={`mailto:${s.email || 'yatufht@gmail.com'}`} className="hidden hover:underline sm:block">{s.email || 'yatufht@gmail.com'}</a>
-        </div>
-      </div>
       <div className="border-b border-garis">
         <div className="wadah flex h-16 items-center gap-8">
           <Link href="/" aria-label="Beranda" className="flex flex-none items-center gap-3">
