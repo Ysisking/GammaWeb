@@ -23,10 +23,11 @@ export default function SettingsTab() {
         <Field label="Username"><div className="flex items-center"><span className="rounded-l-xl border border-r-0 border-ink/15 bg-abu px-3 py-3 text-sm text-ink/50">@</span><input value={s.username} onChange={set('username')} className="input rounded-l-none" /></div></Field>
         <Field label="Nama usaha"><input value={s.nama_usaha} onChange={set('nama_usaha')} className="input" /></Field>
         <Field label="Tagline"><input value={s.tagline} onChange={set('tagline')} className="input" /></Field>
-        <Field label="Deskripsi GammaWeb"><textarea rows="4" value={s.deskripsi} onChange={set('deskripsi')} className="input" /></Field>
-        <ImageField label="Foto sampul" value={s.sampul_url} onChange={set('sampul_url')} hint="Rasio 2:1, mis. 2000×1000 px." />
+        <Field label="Deskripsi toko"><textarea rows="4" value={s.deskripsi} onChange={set('deskripsi')} className="input" /></Field>
+        <ImageField label="Foto sampul" value={s.sampul_url} onChange={set('sampul_url')} hint="Tampil di sisi kanan hero. Rasio sekitar 3:2, mis. 1600×1100 px." />
         <ImageField label="Foto profil" value={s.foto_profil_url} onChange={set('foto_profil_url')} ratio="aspect-square" hint="Persegi, ditampilkan bulat." />
         <Field label="Nomor WhatsApp" hint="Format internasional tanpa +, mis. 6287821130367"><input value={s.wa_number} onChange={set('wa_number')} className="input" /></Field>
+        <Field label="Email kontak"><input type="email" value={s.email || ''} onChange={set('email')} className="input" /></Field>
       </div>
       <div className="space-y-5">
         <div className="card space-y-4 p-5">

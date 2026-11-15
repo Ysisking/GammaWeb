@@ -15,12 +15,12 @@ export default function Page() {
   if (!online) {
     return (
       <Shell hideOwner>
-        <div className="card mt-6 p-6 text-sm leading-relaxed text-ink/80">
+        <div className="card mx-auto my-12 max-w-2xl p-6 text-sm leading-relaxed text-ink/80">
           <h1 className="text-xl font-extrabold">Panel kelola belum aktif</h1>
           <p className="mt-2">Panel ini butuh Supabase untuk menyimpan produk, pesanan, dan ulasan. Ikuti bagian "Mengaktifkan login" di README GammaWeb, lalu deploy ulang.</p>
         </div>
       </Shell>
     )
   }
-  return <Shell hideOwner wide>{ok && isOwner ? <AdminPanel /> : <Loading />}</Shell>
+  return <Shell hideOwner><div className="py-10">{ok && isOwner ? <AdminPanel /> : <Loading />}</div></Shell>
 }

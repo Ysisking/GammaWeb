@@ -6,7 +6,7 @@ import { deleteProduct, loadCategories, loadProducts, saveProduct } from '@/lib/
 import { rupiah } from '@/lib/format'
 import { asset } from '@/lib/config'
 
-const EMPTY = { nama: '', jenis: 'jasa', kategori_id: '', harga: 0, harga_coret: 0, ringkas: '', deskripsi: '', gambar_url: '', fitur: '', aktif: true, urutan: 0, slug: '' }
+const EMPTY = { nama: '', jenis: 'jasa', kategori_id: '', harga: 0, harga_coret: 0, ringkas: '', deskripsi: '', gambar_url: '', link: '', fitur: '', aktif: true, urutan: 0, slug: '' }
 
 export default function ProductsTab() {
   const [list, setList] = useState([])
@@ -32,16 +32,17 @@ export default function ProductsTab() {
         <Field label="Nama"><input required value={edit.nama} onChange={set('nama')} className="input" /></Field>
         <Field label="Slug (alamat)" hint="Kosongkan untuk dibuat otomatis dari nama."><input value={edit.slug || ''} onChange={set('slug')} className="input" /></Field>
         <Field label="Jenis"><select value={edit.jenis} onChange={set('jenis')} className="input"><option value="jasa">Jasa</option><option value="produk">Produk digital</option></select></Field>
-        <Field label="Kategori (sub-menu etalase)"><select value={edit.kategori_id || ''} onChange={set('kategori_id')} className="input"><option value="">Tanpa kategori</option>{cats.map((c) => <option key={c.id} value={c.id}>{c.nama}</option>)}</select></Field>
+        <Field label="Kategori (sub-menu katalog)"><select value={edit.kategori_id || ''} onChange={set('kategori_id')} className="input"><option value="">Tanpa kategori</option>{cats.map((c) => <option key={c.id} value={c.id}>{c.nama}</option>)}</select></Field>
         <Field label="Harga (Rp)" hint="0 = tampil sebagai 'Hubungi kami'."><input type="number" min="0" value={edit.harga} onChange={set('harga')} className="input" /></Field>
         <Field label="Harga coret (Rp, opsional)"><input type="number" min="0" value={edit.harga_coret} onChange={set('harga_coret')} className="input" /></Field>
       </div>
       <Field label="Ringkasan satu kalimat"><input value={edit.ringkas} onChange={set('ringkas')} className="input" maxLength={200} /></Field>
       <Field label="Deskripsi" hint="Pisahkan paragraf dengan baris kosong."><textarea rows="5" value={edit.deskripsi} onChange={set('deskripsi')} className="input" /></Field>
       <Field label="Fitur / yang didapat" hint="Satu fitur per baris."><textarea rows="4" value={Array.isArray(edit.fitur) ? edit.fitur.join('\n') : edit.fitur} onChange={set('fitur')} className="input" /></Field>
-      <ImageField label="Gambar" value={edit.gambar_url} onChange={set('gambar_url')} hint="Rasio 2:1 paling pas." />
+      <Field label="Link etalase" hint="Alamat tampilan asli produk (https://…). Dibuka dari tombol Etalase di kartu."><input type="url" value={edit.link || ''} onChange={set('link')} className="input" placeholder="https://" /></Field>
+      <ImageField label="Gambar" value={edit.gambar_url} onChange={set('gambar_url')} hint="Rasio 16:10 paling pas, mis. 1200×750 px." />
       <div className="flex flex-wrap items-center gap-5">
-        <label className="flex items-center gap-2 text-sm font-semibold"><input type="checkbox" checked={!!edit.aktif} onChange={set('aktif')} className="h-4 w-4" /> Tampilkan di etalase</label>
+        <label className="flex items-center gap-2 text-sm font-semibold"><input type="checkbox" checked={!!edit.aktif} onChange={set('aktif')} className="h-4 w-4" /> Tampilkan di katalog</label>
         <Field label="Urutan"><input type="number" value={edit.urutan} onChange={set('urutan')} className="input w-24" /></Field>
       </div>
       <Msg m={msg} />

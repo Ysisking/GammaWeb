@@ -9,5 +9,5 @@ import { useRequireUser } from '@/lib/useRequireUser'
 export default function Page() {
   const { user, online } = useSite()
   const ok = useRequireUser('/akun/')
-  return <Shell>{!online ? <OfflineNote /> : ok ? <AccountForm user={user} /> : <Loading />}</Shell>
+  return <Shell><div className="mx-auto max-w-xl py-10 sm:py-14">{!online ? <OfflineNote /> : ok ? <AccountForm user={user} /> : <Loading />}</div></Shell>
 }

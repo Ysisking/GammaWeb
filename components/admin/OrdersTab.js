@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { MessageCircle } from 'lucide-react'
+import WaIcon from '@/components/WaIcon'
 import StatusChip from '../StatusChip'
 import { Msg } from './util'
 import { loadOrders, updateOrder } from '@/lib/store'
@@ -43,7 +43,7 @@ export default function OrdersTab() {
             <textarea rows="2" className="input mt-2 text-xs" placeholder="Catatan untuk pelanggan (mis. info pembayaran, estimasi selesai)" value={note[o.id] ?? o.catatan_pemilik ?? ''} onChange={(e) => setNote({ ...note, [o.id]: e.target.value })} />
             <div className="mt-2 flex flex-wrap gap-2">
               {STATUSES.map((s) => <button key={s} onClick={() => setStatus(o, s)} className={`chip px-3 py-1.5 capitalize ${o.status === s ? 'bg-ink text-white' : 'bg-abu hover:bg-ink/10'}`}>{s}</button>)}
-              {o.user_wa && <a href={waLink(o.user_wa.replace(/^0/, '62'), `Halo ${o.user_nama}, terkait pesanan ${o.kode} (${o.product_nama}):`)} target="_blank" rel="noopener" className="chip ml-auto bg-ink px-3 py-1.5 text-white"><MessageCircle size={12} className="mr-1" /> WhatsApp</a>}
+              {o.user_wa && <a href={waLink(o.user_wa.replace(/^0/, '62'), `Halo ${o.user_nama}, terkait pesanan ${o.kode} (${o.product_nama}):`)} target="_blank" rel="noopener" className="chip ml-auto bg-ink px-3 py-1.5 text-white"><WaIcon size={12} className="mr-1" /> WhatsApp</a>}
             </div>
           </div>
         ))}

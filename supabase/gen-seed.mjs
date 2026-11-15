@@ -14,7 +14,7 @@ for (const c of SEED.categories) out += `    insert into public.gw_categories (n
 out += `  end if;\n  if not exists (select 1 from public.gw_products) then\n`
 for (const p of SEED.products) {
   const cat = SEED.categories.find((c) => c.id === p.kategori_id)
-  out += `    insert into public.gw_products (slug, nama, jenis, kategori_id, harga, harga_coret, ringkas, deskripsi, gambar_url, fitur, aktif, urutan, contoh) values (${q(p.slug)}, ${q(p.nama)}, ${q(p.jenis)}, (select id from public.gw_categories where slug = ${q(cat.slug)} limit 1), ${p.harga}, ${p.harga_coret}, ${q(p.ringkas)}, ${q(p.deskripsi)}, ${q(p.gambar_url)}, ${arr(p.fitur)}, true, ${p.urutan}, true);\n`
+  out += `    insert into public.gw_products (slug, nama, jenis, kategori_id, harga, harga_coret, ringkas, deskripsi, gambar_url, link, fitur, aktif, urutan, contoh) values (${q(p.slug)}, ${q(p.nama)}, ${q(p.jenis)}, (select id from public.gw_categories where slug = ${q(cat.slug)} limit 1), ${p.harga}, ${p.harga_coret}, ${q(p.ringkas)}, ${q(p.deskripsi)}, ${q(p.gambar_url)}, ${q(p.link || '')}, ${arr(p.fitur)}, true, ${p.urutan}, true);\n`
 }
 out += `  end if;\nend $$;\n`
 fs.writeFileSync(new URL('./gammaweb.sql', import.meta.url), out)

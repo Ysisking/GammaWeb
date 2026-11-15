@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { MessageCircle } from 'lucide-react'
+import WaIcon from '@/components/WaIcon'
 import Shell from '@/components/Shell'
 import Loading from '@/components/Loading'
 import OfflineNote from '@/components/OfflineNote'
@@ -19,7 +19,8 @@ export default function Page() {
   useEffect(() => { if (ok) loadOrders(user.id).then(setOrders).catch((e) => setErr(e.message)) }, [ok, user])
   return (
     <Shell>
-      <h1 className="mt-6 text-2xl font-extrabold">Pesanan saya</h1>
+      <div className="mx-auto max-w-3xl py-10 sm:py-14">
+      <h1 className="text-3xl font-extrabold tracking-tight">Pesanan saya</h1>
       {err && <div className="card mt-4 p-4 text-sm text-api">{err}</div>}
       {!online ? <OfflineNote /> : !orders ? <Loading /> : (
         <div className="mt-4 grid gap-3">
@@ -36,11 +37,12 @@ export default function Page() {
               </div>
               {o.catatan && <div className="mt-2 rounded-xl bg-abu px-3 py-2 text-xs text-ink/70"><b>Catatan Anda:</b> {o.catatan}</div>}
               {o.catatan_pemilik && <div className="mt-2 rounded-xl bg-api-soft px-3 py-2 text-xs text-ink/80"><b>Dari {s.owner.nama}:</b> {o.catatan_pemilik}</div>}
-              {o.status === 'menunggu' && <a href={waLink(s.wa_number, `Halo ${s.owner.nama}, saya ${user.nama}. Mohon info lanjutan untuk pesanan ${o.kode} (${o.product_nama}).`)} target="_blank" rel="noopener" className="btn-outline mt-3 w-full py-2.5 text-xs"><MessageCircle size={14} /> Tanyakan lewat WhatsApp</a>}
+              {o.status === 'menunggu' && <a href={waLink(s.wa_number, `Halo ${s.owner.nama}, saya ${user.nama}. Mohon info lanjutan untuk pesanan ${o.kode} (${o.product_nama}).`)} target="_blank" rel="noopener" className="btn-outline mt-3 w-full py-2.5 text-xs"><WaIcon size={14} /> Tanyakan lewat WhatsApp</a>}
             </div>
           ))}
         </div>
       )}
+      </div>
     </Shell>
   )
 }

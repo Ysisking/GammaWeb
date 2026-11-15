@@ -22,7 +22,7 @@ export default function CategoriesTab() {
   return (
     <div className="grid gap-4 md:grid-cols-2">
       <div>
-        <div className="flex items-center justify-between"><div className="text-sm text-ink/60">Sub-menu etalase</div><button onClick={() => setEdit({ nama: '', jenis: 'jasa', urutan: list.length + 1 })} className="btn-primary px-4 py-2 text-xs"><Plus size={14} /> Tambah</button></div>
+        <div className="flex items-center justify-between"><div className="text-sm text-ink/60">Sub-menu katalog</div><button onClick={() => setEdit({ nama: '', jenis: 'jasa', urutan: list.length + 1 })} className="btn-primary px-4 py-2 text-xs"><Plus size={14} /> Tambah</button></div>
         <div className="mt-3 grid gap-2">
           {list.map((c) => (
             <div key={c.id} className="card flex items-center gap-3 p-3">

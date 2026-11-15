@@ -14,7 +14,8 @@ export default function Page() {
   const avg = list.length ? list.reduce((a, r) => a + r.rating, 0) / list.length : 0
   return (
     <Shell>
-      <div className="eyebrow mt-8">Review</div>
+      <div className="mx-auto max-w-3xl py-10 sm:py-14">
+      <div className="eyebrow">Review</div>
       <div className="mt-2 flex items-center gap-5 border-b border-ink pb-5">
         <div className="text-5xl font-extrabold tracking-tight">{list.length ? avg.toFixed(1) : '–'}</div>
         <div><Stars n={Math.round(avg)} /><div className="mt-1 text-sm text-ink/60">{list.length} ulasan pelanggan</div></div>
@@ -29,6 +30,7 @@ export default function Page() {
           </div>
         ))}
         {reviews && list.length === 0 && <div className="card p-6 text-sm text-ink/60">Belum ada ulasan. Jadilah yang pertama.</div>}
+      </div>
       </div>
     </Shell>
   )

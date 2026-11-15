@@ -1,7 +1,8 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
-import { LogIn, MessageCircle, ShoppingBag } from 'lucide-react'
+import { LogIn, ShoppingBag } from 'lucide-react'
+import WaIcon from './WaIcon'
 import { useSite } from '@/app/providers'
 import { createOrder } from '@/lib/store'
 import { rupiah, waLink } from '@/lib/format'
@@ -21,7 +22,7 @@ export default function OrderButton({ product }) {
   if (!online) {
     return (
       <a href={waLink(s.wa_number, `Halo ${owner}, saya ingin memesan ${product.nama} (${rupiah(product.harga)}).`)} target="_blank" rel="noopener" className="btn-wa w-full py-4 text-base">
-        <MessageCircle size={18} /> Pesan lewat WhatsApp
+        <WaIcon size={18} /> Pesan lewat WhatsApp
       </a>
     )
   }
@@ -29,7 +30,7 @@ export default function OrderButton({ product }) {
   if (!user) {
     return (
       <div className="rounded-lg bg-abu p-4">
-        <p className="text-sm text-ink/70">Masuk atau daftar dulu untuk memesan. Melihat-lihat tidak perlu akun.</p>
+        <p className="text-sm text-ink/70">Untuk memesan, masuk atau daftar dulu. Melihat-lihat tidak perlu akun.</p>
         <Link href={`/masuk/?next=${encodeURIComponent('/produk/?slug=' + product.slug)}`} className="btn-primary mt-3 w-full"><LogIn size={16} /> Masuk untuk memesan</Link>
       </div>
     )
@@ -40,7 +41,7 @@ export default function OrderButton({ product }) {
       <div className="rounded-lg border border-api/30 bg-api-soft p-4">
         <div className="font-extrabold">Pesanan tercatat · {done.kode}</div>
         <p className="mt-1 text-sm text-ink/70">Langkah terakhir: konfirmasi lewat WhatsApp agar {owner} bisa memproses dan mengirim info pembayaran.</p>
-        <a href={waLink(s.wa_number, pesan)} target="_blank" rel="noopener" className="btn-wa mt-3 w-full"><MessageCircle size={18} /> Konfirmasi via WhatsApp</a>
+        <a href={waLink(s.wa_number, pesan)} target="_blank" rel="noopener" className="btn-wa mt-3 w-full"><WaIcon size={18} /> Konfirmasi via WhatsApp</a>
         <Link href="/pesanan/" className="btn-ghost mt-1 w-full">Lihat pesanan saya</Link>
       </div>
     )

@@ -5,5 +5,5 @@ import AuthForm from '@/components/AuthForm'
 export const metadata = { title: 'Masuk' }
 
 export default function Page() {
-  return <Shell><Suspense><AuthForm mode="masuk" /></Suspense></Shell>
+  return <Shell><div className="mx-auto max-w-md py-10 sm:py-14"><Suspense><AuthForm mode="masuk" /></Suspense></div></Shell>
 }

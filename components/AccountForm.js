@@ -13,7 +13,7 @@ export default function AccountForm({ user }) {
     setBusy(false)
   }
   return (
-    <form onSubmit={submit} className="card mt-6 p-6">
+    <form onSubmit={submit} className="card p-6">
       <h1 className="text-2xl font-extrabold">Akun saya</h1>
       <div className="mt-1 text-sm text-ink/60">{user.email}</div>
       <div className="mt-5 space-y-4">

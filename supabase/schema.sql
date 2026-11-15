@@ -71,6 +71,8 @@ create table if not exists public.gw_orders (
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
+alter table public.gw_products add column if not exists link text not null default '';
+
 create index if not exists gw_orders_user on public.gw_orders (user_id, created_at desc);
 
 create table if not exists public.gw_reviews (

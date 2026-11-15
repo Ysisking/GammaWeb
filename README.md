@@ -1,4 +1,4 @@
-# GammaWeb — etalase produk & jasa gammaproject
+# gammaproject official store
 
 Website ala Lynk.id untuk semua produk digital dan jasa gammaproject.
 Berupa **situs statis** (seperti web undangan), jadi bisa langsung dibuka di browser lewat GitHub Pages
