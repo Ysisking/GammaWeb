@@ -1,0 +1,48 @@
+// Isi awal situs. Dipakai langsung saat Supabase belum diatur, dan disalin ke
+// database lewat supabase/gammaweb.sql saat Supabase diaktifkan.
+export const SEED = {
+  settings: {
+    username: 'gammaproject',
+    nama_usaha: 'GammaWeb',
+    tagline: 'Your Trusted Source for Digital Products',
+    deskripsi: 'GammaWeb menghadirkan website siap pakai untuk menjual produk digital Anda. Tanpa coding, tanpa ribet teknis, langsung tampil meyakinkan.',
+    sampul_url: '/sampul-default.jpg',
+    foto_profil_url: '/profil-default.jpg',
+    wa_number: '6287821130367',
+    owner: {
+      nama: 'Taufik',
+      jabatan: 'Pemilik gammaproject',
+      bio: 'Membangun website dan produk digital untuk usaha kecil agar tampil meyakinkan sejak detik pertama.',
+      foto_url: '',
+      instagram: '',
+    },
+    tentang: 'gammaproject adalah studio kecil yang membuat website siap pakai, aplikasi, dan produk digital untuk usaha kecil dan perorangan. Produk pertamanya, GammaWeb, membantu Anda memiliki etalase online yang rapi tanpa harus paham coding.\n\nSetiap pesanan dikerjakan langsung oleh pemilik, jadi Anda berkomunikasi dengan orang yang benar-benar membuat website Anda.',
+  },
+  categories: [
+    { id: 'seed-website', nama: 'Website', slug: 'website', jenis: 'jasa', urutan: 1 },
+    { id: 'seed-aplikasi', nama: 'Aplikasi', slug: 'aplikasi', jenis: 'jasa', urutan: 2 },
+    { id: 'seed-produk-digital', nama: 'Produk Digital', slug: 'produk-digital', jenis: 'produk', urutan: 3 },
+  ],
+  products: [
+    { id: 'seed-p1', slug: 'gammaweb-etalase-produk-digital', nama: 'GammaWeb: Etalase Produk Digital', jenis: 'jasa', kategori_id: 'seed-website', harga: 0, harga_coret: 0, urutan: 1, gambar_url: '/contoh-tampil-mahal.jpg', aktif: true, contoh: true,
+      ringkas: 'Website siap pakai untuk menjual produk digital Anda.',
+      deskripsi: 'Website etalase dengan halaman produk, tombol beli, dan tampilan yang nyaman di ponsel. Cukup kirim nama toko, logo, dan daftar produk; sisanya kami rapikan.\n\nHarga menyesuaikan jumlah produk dan kebutuhan. Hubungi kami untuk penawaran.',
+      fitur: ['Halaman produk dengan tombol beli', 'Tampilan ponsel, tablet, dan komputer', 'Domain dan hosting dibantu', 'Revisi ringan 2 kali'] },
+    { id: 'seed-p2', slug: 'undangan-digital', nama: 'Undangan Pernikahan Digital', jenis: 'jasa', kategori_id: 'seed-website', harga: 150000, harga_coret: 250000, urutan: 2, gambar_url: '/contoh-nyaman-di-ponsel.jpg', aktif: true, contoh: true,
+      ringkas: 'Undangan online dengan nama tamu, RSVP, dan amplop digital.',
+      deskripsi: 'Pilih dari beberapa template, kirim data acara dan foto, undangan siap dibagikan lewat WhatsApp dengan nama tamu di sampul.',
+      fitur: ['Nama tamu otomatis dari link', 'RSVP dan buku ucapan', 'Hitung mundur dan peta lokasi', 'Amplop digital'] },
+    { id: 'seed-p3', slug: 'aplikasi-keuangan-usaha', nama: 'Aplikasi Pencatatan Keuangan Usaha', jenis: 'jasa', kategori_id: 'seed-aplikasi', harga: 0, harga_coret: 0, urutan: 3, gambar_url: '/contoh-halaman-produk.jpg', aktif: true, contoh: true,
+      ringkas: 'Catat pemasukan, pengeluaran, dan laporan harian usaha Anda.',
+      deskripsi: 'Aplikasi web untuk mencatat transaksi usaha dengan laporan harian dan bulanan. Bisa dipakai beberapa cabang.',
+      fitur: ['Pencatatan transaksi harian', 'Laporan otomatis', 'Multi cabang'] },
+    { id: 'seed-p4', slug: 'template-undangan-html', nama: 'Template Undangan HTML', jenis: 'produk', kategori_id: 'seed-produk-digital', harga: 49000, harga_coret: 0, urutan: 4, gambar_url: '/contoh-tombol-beli.jpg', aktif: true, contoh: true,
+      ringkas: 'File template undangan siap edit, dikirim lewat email.',
+      deskripsi: 'Template undangan digital dalam format HTML yang bisa Anda edit sendiri. Dikirim lewat email setelah pembayaran dikonfirmasi.',
+      fitur: ['File HTML + panduan edit', 'Lisensi untuk 1 acara'] },
+    { id: 'seed-p5', slug: 'modul-html-css', nama: 'Modul Belajar HTML & CSS', jenis: 'produk', kategori_id: 'seed-produk-digital', harga: 35000, harga_coret: 0, urutan: 5, gambar_url: '/contoh-cepat-tayang.jpg', aktif: true, contoh: true,
+      ringkas: 'Materi belajar lengkap dengan contoh dan latihan.',
+      deskripsi: 'Modul PDF untuk pemula, disusun bertahap dari dasar HTML sampai tata letak CSS. Cocok untuk guru dan siswa.',
+      fitur: ['PDF siap cetak', 'Contoh kode dan latihan'] },
+  ],
+}
