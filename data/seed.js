@@ -29,7 +29,7 @@ export const SEED = {
   ],
   products: [
     { id: 'seed-p1', slug: 'madhura-rekap', nama: 'Madhura Rekap', jenis: 'jasa', kategori_id: 'seed-website', harga: 0, harga_coret: 0, urutan: 1, gambar_url: '/produk-madhura.jpg', aktif: true, contoh: true,
-      link: 'https://madura-bisnis.emergent.host/?utm_source=share',
+      link: 'https://madura-bisnis.preview.emergentagent.com/?utm_source=share',
       ringkas: 'Rekap pemasukan dan pengeluaran harian semua cabang usaha dalam satu tempat.',
       deskripsi: 'Website rekap harian untuk usaha dengan banyak cabang. Pengurus cabang mengisi rekap, pemilik melihat semuanya dari satu dasbor.',
       fitur: ['Rekap harian per cabang', 'Dasbor untuk pemilik usaha', 'Bisa dibuka dari ponsel'] },

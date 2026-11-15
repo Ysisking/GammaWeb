@@ -48,7 +48,7 @@ function Product() {
             <span className="text-2xl font-extrabold">{rupiah(p.harga)}</span>
             {p.harga_coret > 0 && <span className="text-sm text-ink/45 line-through">{rupiah(p.harga_coret)}</span>}
           </div>
-          {p.link && <a href={p.link} target="_blank" rel="noopener" className="btn-outline mt-5 w-full">Buka etalase {p.nama} <span aria-hidden="true">↗</span></a>}
+          {p.link && <a href={p.link} target="_blank" rel="noopener" className="btn-outline mt-5 w-full">View Product <span aria-hidden="true">↗</span></a>}
           <div id="order" className="mt-3 scroll-mt-32"><OrderButton product={p} /></div>
         </div>
       </div>

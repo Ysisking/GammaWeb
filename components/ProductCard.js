@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { rupiah } from '@/lib/format'
 import { asset } from '@/lib/config'
 
-// Kartu katalog: gambar, kategori, nama, ringkasan, harga, lalu tombol Etalase dan Order.
+// Kartu katalog: gambar, kategori, nama, ringkasan, harga, lalu tombol View Product dan Order.
 export default function ProductCard({ p, kategori }) {
   const detail = `/produk/?slug=${p.slug}`
   return (
@@ -20,7 +20,7 @@ export default function ProductCard({ p, kategori }) {
         </div>
         <div className="mt-auto grid grid-cols-2 gap-2.5 pt-5">
           {p.link
-            ? <a href={p.link} target="_blank" rel="noopener" className="btn-outline px-3">Etalase <span aria-hidden="true">↗</span></a>
+            ? <a href={p.link} target="_blank" rel="noopener" className="btn-outline whitespace-nowrap px-2">View Product <span aria-hidden="true">↗</span></a>
             : <Link href={detail} className="btn-outline px-3">Detail</Link>}
           <Link href={`${detail}#order`} className="btn-primary px-3">Order</Link>
         </div>

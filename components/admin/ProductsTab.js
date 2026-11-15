@@ -39,7 +39,7 @@ export default function ProductsTab() {
       <Field label="Ringkasan satu kalimat"><input value={edit.ringkas} onChange={set('ringkas')} className="input" maxLength={200} /></Field>
       <Field label="Deskripsi" hint="Pisahkan paragraf dengan baris kosong."><textarea rows="5" value={edit.deskripsi} onChange={set('deskripsi')} className="input" /></Field>
       <Field label="Fitur / yang didapat" hint="Satu fitur per baris."><textarea rows="4" value={Array.isArray(edit.fitur) ? edit.fitur.join('\n') : edit.fitur} onChange={set('fitur')} className="input" /></Field>
-      <Field label="Link etalase" hint="Alamat tampilan asli produk (https://…). Dibuka dari tombol Etalase di kartu."><input type="url" value={edit.link || ''} onChange={set('link')} className="input" placeholder="https://" /></Field>
+      <Field label="Link produk" hint="Alamat tampilan asli produk (https://…). Dibuka dari tombol View Product di kartu."><input type="url" value={edit.link || ''} onChange={set('link')} className="input" placeholder="https://" /></Field>
       <ImageField label="Gambar" value={edit.gambar_url} onChange={set('gambar_url')} hint="Rasio 16:10 paling pas, mis. 1200×750 px." />
       <div className="flex flex-wrap items-center gap-5">
         <label className="flex items-center gap-2 text-sm font-semibold"><input type="checkbox" checked={!!edit.aktif} onChange={set('aktif')} className="h-4 w-4" /> Tampilkan di katalog</label>

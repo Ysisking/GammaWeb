@@ -26,24 +26,27 @@ export default function Home() {
   ]
   return (
     <Shell bleed>
-      {/* Hero: pita hitam selebar layar. Foto sampul di kanan (di ponsel pindah ke bawah teks). */}
-      <section className="overflow-hidden bg-ink text-white">
-        <div className="wadah grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-12">
-          <div className="flex flex-col justify-center py-12 sm:py-16 lg:py-24">
+      {/* Hero: foto sampul mengisi sisi kanan dan melebur ke latar hitam lewat gradasi,
+          jadi teks di kiri tetap terbaca dan foto tidak terlihat seperti tempelan. */}
+      <section className="relative isolate overflow-hidden bg-ink text-white">
+        <img src={asset(s.sampul_url)} alt="" className="absolute inset-y-0 right-0 -z-20 h-full w-full object-cover object-[center_38%] lg:w-[64%]" />
+        {/* Ponsel/tablet: foto jadi latar seluruh hero, digelapkan dari atas ke bawah. */}
+        <div aria-hidden="true" className="absolute inset-0 -z-10 lg:hidden" style={{ background: 'linear-gradient(180deg, rgba(11,11,11,.78) 0%, rgba(11,11,11,.86) 45%, rgba(11,11,11,.97) 100%)' }} />
+        {/* Desktop: hitam pekat di kiri, memudar ke foto di kanan; tepi atas-bawah ikut diredam. */}
+        <div aria-hidden="true" className="absolute inset-0 -z-10 hidden lg:block" style={{ background: 'linear-gradient(90deg, #0B0B0B 0%, #0B0B0B 36%, rgba(11,11,11,.86) 46%, rgba(11,11,11,.45) 62%, rgba(11,11,11,.12) 82%, rgba(11,11,11,.3) 100%), linear-gradient(180deg, rgba(11,11,11,.35) 0%, rgba(11,11,11,0) 22%, rgba(11,11,11,0) 70%, rgba(11,11,11,.75) 100%)' }} />
+        <div className="wadah">
+          <div className="flex max-w-xl flex-col justify-center py-14 sm:py-20 lg:min-h-[560px] lg:py-24">
             <div className="flex items-center gap-3">
               <img src={asset(s.foto_profil_url)} alt="" className="h-11 w-11 rounded-full border border-white/25 object-cover" />
-              <span className="text-sm font-semibold text-white/75">@{s.username}</span>
+              <span className="text-sm font-semibold text-white/80">@{s.username}</span>
             </div>
             <h1 className="mt-6 text-[40px] font-extrabold leading-[1.04] tracking-tight sm:text-6xl lg:text-[64px]">{s.nama_usaha}</h1>
             {s.tagline && <p className="mt-5 text-lg font-semibold leading-snug sm:text-xl">{s.tagline}</p>}
-            <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-white/75">{s.deskripsi}</p>
+            <p className="mt-3 text-[15px] leading-relaxed text-white/80">{s.deskripsi}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/#katalog" className="btn-terang">Lihat katalog</Link>
               <Link href="/tentang/" className="btn-garis-terang">Tentang gammaproject</Link>
             </div>
-          </div>
-          <div className="relative -mx-5 h-64 sm:-mx-8 sm:h-80 lg:mx-0 lg:h-auto lg:min-h-[520px]">
-            <img src={asset(s.sampul_url)} alt="Tampilan beberapa website dan undangan digital buatan gammaproject" className="absolute inset-0 h-full w-full object-cover object-top" />
           </div>
         </div>
       </section>
