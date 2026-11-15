@@ -23,7 +23,7 @@ export default function Page() {
       {err && <div className="card mt-4 p-4 text-sm text-api">{err}</div>}
       {!online ? <OfflineNote /> : !orders ? <Loading /> : (
         <div className="mt-4 grid gap-3">
-          {orders.length === 0 && <div className="card p-6 text-center text-sm text-ink/60">Belum ada pesanan. <Link href="/#etalase" className="font-bold text-api">Lihat etalase</Link></div>}
+          {orders.length === 0 && <div className="card p-6 text-sm text-ink/60">Belum ada pesanan. <Link href="/#etalase" className="tautan">Lihat etalase</Link></div>}
           {orders.map((o) => (
             <div key={o.id} className="card p-4">
               <div className="flex items-start justify-between gap-3">

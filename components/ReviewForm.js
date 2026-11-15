@@ -10,9 +10,9 @@ export default function ReviewForm({ onDone }) {
   const [rating, setRating] = useState(5)
   const [teks, setTeks] = useState('')
   const [msg, setMsg] = useState('')
-  if (!online) return <div className="card mt-4 p-4 text-center text-sm text-ink/70">Penulisan ulasan akan dibuka setelah fitur akun diaktifkan.</div>
+  if (!online) return <div className="card mt-4 p-4 text-sm text-ink/70">Penulisan ulasan akan dibuka setelah fitur akun diaktifkan.</div>
   if (!ready) return null
-  if (!user) return <div className="card mt-4 p-4 text-center text-sm text-ink/70">Ingin menulis ulasan? <Link href="/masuk/?next=%2Fulasan%2F" className="font-bold text-api">Masuk dulu</Link>.</div>
+  if (!user) return <div className="card mt-4 p-4 text-sm text-ink/70">Ingin menulis ulasan? <Link href="/masuk/?next=%2Fulasan%2F" className="tautan">Masuk dulu</Link>.</div>
   async function submit(e) {
     e.preventDefault(); setMsg('')
     try { await createReview({ rating, teks, nama: user.nama }); setTeks(''); onDone?.() } catch (x) { setMsg(x.message) }

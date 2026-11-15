@@ -16,7 +16,7 @@ export default function ReviewsTab() {
   return (
     <div className="grid gap-3">
       <Msg m={msg} />
-      {list.length === 0 && <div className="card p-6 text-center text-sm text-ink/60">Belum ada ulasan.</div>}
+      {list.length === 0 && <div className="card p-6 text-sm text-ink/60">Belum ada ulasan.</div>}
       {list.map((r) => (
         <div key={r.id} className={`card p-4 ${r.status !== 'tampil' ? 'opacity-60' : ''}`}>
           <div className="flex items-center justify-between gap-3"><div className="font-extrabold">{r.nama} {r.status !== 'tampil' && <span className="chip bg-ink/10">disembunyikan</span>}</div><Stars n={r.rating} /></div>

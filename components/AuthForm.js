@@ -21,10 +21,10 @@ export default function AuthForm({ mode }) {
 
   if (!online) {
     return (
-      <div className="card mx-auto mt-6 w-full max-w-md p-6 text-center">
+      <div className="card mt-8 p-6">
         <h1 className="text-xl font-extrabold">Pemesanan lewat WhatsApp</h1>
         <p className="mt-2 text-sm text-ink/70">Untuk saat ini pesanan dilayani langsung lewat WhatsApp, tanpa perlu membuat akun.</p>
-        <a href={waLink(s.wa_number, `Halo ${s.owner.nama}, saya ingin memesan.`)} target="_blank" rel="noopener" className="btn mt-4 w-full bg-[#25D366] text-white"><MessageCircle size={18} /> Hubungi via WhatsApp</a>
+        <a href={waLink(s.wa_number, `Halo ${s.owner.nama}, saya ingin memesan.`)} target="_blank" rel="noopener" className="btn-wa mt-4 w-full"><MessageCircle size={18} /> Hubungi via WhatsApp</a>
       </div>
     )
   }
@@ -43,7 +43,7 @@ export default function AuthForm({ mode }) {
     setBusy(false)
   }
   return (
-    <form onSubmit={submit} className="card mx-auto mt-6 w-full max-w-md p-6">
+    <form onSubmit={submit} className="card mt-8 p-6">
       <h1 className="text-2xl font-extrabold">{isDaftar ? 'Buat akun' : 'Masuk'}</h1>
       <p className="mt-1 text-sm text-ink/60">{isDaftar ? 'Akun hanya diperlukan saat memesan produk atau jasa.' : 'Masuk untuk memesan dan melihat riwayat pesanan.'}</p>
       <div className="mt-5 space-y-4">
@@ -55,10 +55,10 @@ export default function AuthForm({ mode }) {
       {err && <div className="mt-3 rounded-xl bg-api-soft px-4 py-2 text-sm font-semibold text-api-dark">{err}</div>}
       {info && <div className="mt-3 rounded-xl bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-700">{info}</div>}
       <button disabled={busy} className="btn-primary mt-5 w-full py-3.5">{busy ? 'Memproses…' : isDaftar ? 'Daftar' : 'Masuk'}</button>
-      <div className="mt-4 text-center text-sm text-ink/60">
+      <div className="mt-4 text-sm text-ink/60">
         {isDaftar
-          ? <>Sudah punya akun? <Link href={`/masuk/?next=${encodeURIComponent(next)}`} className="font-bold text-api">Masuk</Link></>
-          : <>Belum punya akun? <Link href={`/daftar/?next=${encodeURIComponent(next)}`} className="font-bold text-api">Daftar</Link></>}
+          ? <>Sudah punya akun? <Link href={`/masuk/?next=${encodeURIComponent(next)}`} className="tautan">Masuk</Link></>
+          : <>Belum punya akun? <Link href={`/daftar/?next=${encodeURIComponent(next)}`} className="tautan">Daftar</Link></>}
       </div>
     </form>
   )

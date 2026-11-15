@@ -14,8 +14,9 @@ export default function Page() {
   const avg = list.length ? list.reduce((a, r) => a + r.rating, 0) / list.length : 0
   return (
     <Shell>
-      <div className="card mt-6 flex items-center gap-5 p-6">
-        <div className="text-5xl font-extrabold">{list.length ? avg.toFixed(1) : '–'}</div>
+      <div className="eyebrow mt-8">Review</div>
+      <div className="mt-2 flex items-center gap-5 border-b border-ink pb-5">
+        <div className="text-5xl font-extrabold tracking-tight">{list.length ? avg.toFixed(1) : '–'}</div>
         <div><Stars n={Math.round(avg)} /><div className="mt-1 text-sm text-ink/60">{list.length} ulasan pelanggan</div></div>
       </div>
       <ReviewForm onDone={load} />
@@ -27,7 +28,7 @@ export default function Page() {
             <div className="mt-2 text-xs text-ink/50">{tanggal(r.created_at)}</div>
           </div>
         ))}
-        {reviews && list.length === 0 && <div className="card p-6 text-center text-sm text-ink/60">Belum ada ulasan. Jadilah yang pertama.</div>}
+        {reviews && list.length === 0 && <div className="card p-6 text-sm text-ink/60">Belum ada ulasan. Jadilah yang pertama.</div>}
       </div>
     </Shell>
   )

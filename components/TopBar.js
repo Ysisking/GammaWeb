@@ -1,7 +1,6 @@
 'use client'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { LogIn, LogOut, Package, Settings, User } from 'lucide-react'
 import { useSite } from '@/app/providers'
 import { signOut } from '@/lib/store'
 import { asset } from '@/lib/config'
@@ -10,21 +9,24 @@ export default function TopBar() {
   const { user, isOwner, online } = useSite()
   const router = useRouter()
   async function logout() { await signOut(); router.push('/') }
+  const link = 'rounded px-2.5 py-2 text-[13px] font-semibold text-ink/70 transition-colors hover:text-ink'
   return (
-    <header className="sticky top-0 z-30 border-b border-black/5 bg-abu/85 backdrop-blur">
+    <header className="border-b border-garis bg-abu">
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-2" aria-label="Beranda"><img src={asset('/logo.svg')} alt="gammaproject" className="h-6" /></Link>
-        <nav className="flex items-center gap-1 text-sm font-semibold">
+        <Link href="/" aria-label="Beranda"><img src={asset('/logo.svg')} alt="gammaproject" className="h-[22px]" /></Link>
+        <nav className="-mr-2.5 flex items-center">
           {user ? (
             <>
-              {isOwner && <Link href="/admin/" className="btn-ghost px-3 py-2"><Settings size={16} /><span className="hidden sm:inline">Kelola</span></Link>}
-              <Link href="/pesanan/" className="btn-ghost px-3 py-2"><Package size={16} /><span className="hidden sm:inline">Pesanan</span></Link>
-              <Link href="/akun/" className="btn-ghost px-3 py-2"><User size={16} /><span className="hidden sm:inline">{user.nama.split(' ')[0]}</span></Link>
-              <button onClick={logout} className="btn-ghost px-3 py-2" aria-label="Keluar"><LogOut size={16} /></button>
+              {isOwner && <Link href="/admin/" className={link}>Kelola</Link>}
+              <Link href="/pesanan/" className={link}>Pesanan</Link>
+              <Link href="/akun/" className={link}>Akun</Link>
+              <button onClick={logout} className={link}>Keluar</button>
             </>
           ) : online ? (
-            <Link href="/masuk/" className="btn-outline px-4 py-2"><LogIn size={16} /> Masuk</Link>
-          ) : null}
+            <Link href="/masuk/" className={`${link} text-ink`}>Masuk</Link>
+          ) : (
+            <Link href="/#etalase" className={link}>Etalase</Link>
+          )}
         </nav>
       </div>
     </header>
