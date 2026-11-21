@@ -1,10 +1,16 @@
 {
-  // Situs statis hasil `next build` (output: 'export') yang ditayangkan dari folder out/.
+  // Situs statis hasil `next build` (output: 'export') yang ditayangkan dari folder out/,
+  // ditambah jadwal penjaga aktivitas database Supabase (lihat worker/index.js).
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "gammaweb",
+  "main": "worker/index.js",
   "compatibility_date": "2026-11-01",
   "assets": {
     "directory": "./out",
+    "binding": "ASSETS",
     "not_found_handling": "404-page"
-  }
+  },
+  // Dua kali sehari (UTC): 01.17 dan 13.17, sekitar 08.17 dan 20.17 WIB.
+  "triggers": { "crons": ["17 1,13 * * *"] },
+  "observability": { "enabled": true }
 }
