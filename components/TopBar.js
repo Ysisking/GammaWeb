@@ -8,7 +8,6 @@ import { signOut } from '@/lib/store'
 import { asset } from '@/lib/config'
 
 const NAV = [
-  ['/?kategori=website#katalog', 'Website'],
   ['/?kategori=produk#katalog', 'Produk'],
   ['/?kategori=layanan#katalog', 'Layanan'],
   ['/tentang/', 'Tentang'],

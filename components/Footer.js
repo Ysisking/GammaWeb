@@ -8,7 +8,7 @@ export const POLICY_LINKS = [
   ['/kebijakan-retur-dana/', 'Kebijakan Retur Dana'],
   ['/kebijakan-pengiriman/', 'Kebijakan Pengiriman'],
 ]
-const KATALOG = [['/?kategori=website#katalog', 'Website'], ['/?kategori=produk#katalog', 'Produk'], ['/?kategori=layanan#katalog', 'Layanan']]
+const KATALOG = [['/?kategori=produk#katalog', 'Produk'], ['/?kategori=layanan#katalog', 'Layanan']]
 const TOKO = [['/tentang/', 'About gammaproject'], ['/ulasan/', 'Review'], ['/pesanan/', 'Pesanan saya']]
 
 export default function Footer({ settings: s }) {

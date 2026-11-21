@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation'
 import ProductCard from './ProductCard'
 
 // Katalog dengan sub-menu: Semua + setiap kategori (tetap tampil walau masih kosong).
-// Kategori bisa dipilih lewat alamat, mis. /?kategori=website#katalog dari menu atas.
+// Kategori bisa dipilih lewat alamat, mis. /?kategori=produk#katalog dari menu atas.
 export default function Showcase({ categories, products }) {
   const dariAlamat = useSearchParams().get('kategori')
   const [active, setActive] = useState('semua')
