@@ -39,7 +39,7 @@ export const SEED = {
       deskripsi: 'Aplikasi web pencatatan keuangan usaha. Pemilik melihat semua cabang dan dasbor, pengurus cabang mengisi rekap harian. Data tersimpan di akun, jadi ganti HP pun rekap tetap ada.',
       fitur: ['Masuk sebagai pemilik usaha atau pengurus cabang', 'Rekap semua cabang dalam satu tempat', 'Tersedia dalam bahasa Indonesia dan Inggris'] },
     { id: 'seed-p4', slug: 'moneyout', nama: 'MoneyOut', jenis: 'jasa', kategori_id: 'seed-website', harga: 0, harga_coret: 0, urutan: 3, gambar_url: '/produk-moneyout.jpg', aktif: true, contoh: false,
-      link: '',
+      link: 'https://moneyout.gamma-tau.workers.dev',
       ringkas: 'Catat pemasukan, pengeluaran, simpanan, dan hutang pribadi dalam satu aplikasi.',
       deskripsi: 'Aplikasi web keuangan pribadi untuk pekerja kantoran, freelancer, sampai mahasiswa. Catat gaji dan penghasilan harian, belanja sehari-hari, tabungan, investasi, hutang-piutang, dan aset. Data Analyst membaca catatanmu lalu memberi kesimpulan, risiko, dan peluang setiap bulan.',
       fitur: ['Banyak dompet: tunai, rekening bank, dan e-wallet', 'Anggaran per kategori dengan sisa jatah per hari', 'Data Analyst: skor kesehatan keuangan dan saran otomatis', 'Kekayaan bersih dari saldo, aset, dan hutang'] },
